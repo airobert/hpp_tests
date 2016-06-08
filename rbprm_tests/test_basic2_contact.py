@@ -100,8 +100,7 @@ i = 0;
 
 while (i < len(configs)):
 	fullBody.draw(configs[i],r)
-	sleep(0.1)
+	sleep(0.05)
 	i = i + 1
 
 print "Animation finished!"
-

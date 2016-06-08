@@ -13,7 +13,7 @@ urdfNameRom = ['hyq_lhleg_rom','hyq_lfleg_rom','hyq_rfleg_rom','hyq_rhleg_rom']
 urdfSuffix = ""
 srdfSuffix = ""
 # name_of_scene = "groundcrouch"
-name_of_scene = "basic"
+name_of_scene = "boeing"
 
 
 rbprmBuilder = Builder ()
@@ -37,8 +37,8 @@ r = Viewer (ps)
 
 
 rbprmBuilder.setJointBounds ("base_joint_xyz", [-6,5, -4, 4, 0.6, 2])
-q_init = [-6,-3, 0.65,1,0,0,0];
-q_goal = [4, 4, 0.65, 1, 0, 0, 0];
+q_init = [0, 3, -0.85,1,0,0,0];
+q_goal = [0, -33, -0.85, 1, 0, 0, 0];
 # rbprmBuilder.setCurrentConfig (q_init); r (q_init)
 
 # q_init = rbprmBuilder.getCurrentConfig ();
