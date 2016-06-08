@@ -91,7 +91,7 @@ fullBody.setEndState(q_goal,[rLegId,lLegId,rarmId,larmId])
 
 r(q_init)
 # computing the contact sequence
-configs = fullBody.interpolate(0.1, 1, 0)
+configs = fullBody.interpolate(0.2, 1, 0)
 # RB: Is this line redundent?
 r.loadObstacleModel ('hpp-rbprm-corba', name_of_scene, "contact")
 
