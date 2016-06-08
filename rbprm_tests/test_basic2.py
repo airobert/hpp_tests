@@ -9,8 +9,6 @@ rootJointType = 'freeflyer'
 packageName = 'hpp-rbprm-corba'
 meshPackageName = 'hpp-rbprm-corba'
 urdfName = 'hyq_trunk'
-# urdfName = 'basic'
-# urdfNameRom =[]
 urdfNameRom = ['hyq_lhleg_rom','hyq_lfleg_rom','hyq_rfleg_rom','hyq_rhleg_rom']
 urdfSuffix = ""
 srdfSuffix = ""
@@ -53,9 +51,9 @@ r.addLandmark(r.sceneName,1)
 t = ps.solve ()
 if isinstance(t, list):
 	t = t[0]* 3600000 + t[1] * 60000 + t[2] * 1000 + t[3]
-f = open('log.txt', 'a')
-f.write("path computation " + str(t) + "\n")
-f.close()
+# f = open('log.txt', 'a')
+# f.write("path computation " + str(t) + "\n")
+# f.close()
 #~ rbprmBuilder.exportPath (r, ps.client.problem, 1, 0.1, "obstacle_hyq_robust_10_path.txt")
 
 
