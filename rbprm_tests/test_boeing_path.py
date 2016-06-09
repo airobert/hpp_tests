@@ -36,9 +36,9 @@ r = Viewer (ps)
 
 
 
-rbprmBuilder.setJointBounds ("base_joint_xyz", [-6,5, -4, 4, 0.6, 2])
-q_init = [0, 4, -0.65,1,0,0,0];
-q_goal = [0, -33, -0.65, 1, 0, 0, 0];
+rbprmBuilder.setJointBounds ("base_joint_xyz", [-4,4, -35, 22, -1, 1])
+q_init = [0, 4, -0.85,1,0,0,0];
+q_goal = [0, -33, -0.85, 1, 0, 0, 0];
 # rbprmBuilder.setCurrentConfig (q_init); r (q_init)
 
 # q_init = rbprmBuilder.getCurrentConfig ();
@@ -54,6 +54,9 @@ ps.client.problem.selectConFigurationShooter("RbprmShooter")
 ps.client.problem.selectPathValidation("RbprmPathValidation",0.01)
 r.loadObstacleModel (packageName, name_of_scene, "planning")
 r.client.gui.setColor('planning', [1,1,1,0.3])
+
+r(q_init)
+
 
 r.addLandmark(r.sceneName,1)
 #~ ps.solve ()
