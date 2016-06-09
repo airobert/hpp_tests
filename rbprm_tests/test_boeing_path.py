@@ -37,8 +37,8 @@ r = Viewer (ps)
 
 
 rbprmBuilder.setJointBounds ("base_joint_xyz", [-6,5, -4, 4, 0.6, 2])
-q_init = [0, 3, -0.85,1,0,0,0];
-q_goal = [0, -33, -0.85, 1, 0, 0, 0];
+q_init = [0, 4, -0.65,1,0,0,0];
+q_goal = [0, -33, -0.65, 1, 0, 0, 0];
 # rbprmBuilder.setCurrentConfig (q_init); r (q_init)
 
 # q_init = rbprmBuilder.getCurrentConfig ();
