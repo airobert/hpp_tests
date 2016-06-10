@@ -19,7 +19,7 @@ name_of_scene = "simple_boeing"
 rbprmBuilder = Builder ()
 
 rbprmBuilder.loadModel(urdfName, urdfNameRom, rootJointType, meshPackageName, packageName, urdfSuffix, srdfSuffix)
-rbprmBuilder.setJointBounds ("base_joint_xyz", [-6,5, -4, 4, 0.6, 2])
+# rbprmBuilder.setJointBounds ("base_joint_xyz", [-6,5, -4, 4, 0.6, 2])
 rbprmBuilder.setFilter(['hyq_rhleg_rom', 'hyq_lfleg_rom', 'hyq_rfleg_rom','hyq_lhleg_rom'])
 rbprmBuilder.setNormalFilter('hyq_lhleg_rom', [0,0,1], 0.9)
 rbprmBuilder.setNormalFilter('hyq_rfleg_rom', [0,0,1], 0.9)
@@ -36,9 +36,9 @@ r = Viewer (ps)
 
 
 
-rbprmBuilder.setJointBounds ("base_joint_xyz", [-4,4, -35, 22, -1, 1])
+rbprmBuilder.setJointBounds ("base_joint_xyz", [-4,4, -35, 10, -1, 1])
 q_init = [0, 4, 0,1,0,0,0];
-q_goal = [0, -33, 0, 1, 0, 0, 0];
+q_goal = [0, -27, 0, 1, 0, 0, 0];
 # rbprmBuilder.setCurrentConfig (q_init); r (q_init)
 
 # q_init = rbprmBuilder.getCurrentConfig ();
