@@ -36,9 +36,11 @@ r = Viewer (ps)
 
 
 
-rbprmBuilder.setJointBounds ("base_joint_xyz", [-4,4, -35, 10, -1, 1])
-q_init = [0, 4, 0,1,0,0,0];
-q_goal = [0, -27, 0, 1, 0, 0, 0];
+rbprmBuilder.setJointBounds ("base_joint_xyz", [-35,10, -4, 4, -1, 1])
+#q_init = [0, 4, 0.65, 0.7071,0,0,0.7071];
+#q_goal = [0, -27, 0.65, 0.7071,0,0,0.7071];
+q_init = [4, 0, 0.65, 1,0,0,0];
+q_goal = [-27, 0, 0.65, 1,0,0,0];
 # rbprmBuilder.setCurrentConfig (q_init); r (q_init)
 
 # q_init = rbprmBuilder.getCurrentConfig ();
@@ -50,11 +52,11 @@ ps.addPathOptimizer("RandomShortcut")
 ps.setInitialConfig (q_init)
 ps.addGoalConfig (q_goal)
 
-ps.client.problem.selectConFigurationShooter("RbprmShooter")
-ps.client.problem.selectPathValidation("RbprmPathValidation",0.01)
+
 r.loadObstacleModel (packageName, name_of_scene, "planning")
 r.client.gui.setColor('planning', [1,1,1,0.3])
-
+ps.client.problem.selectConFigurationShooter("RbprmShooter")
+ps.client.problem.selectPathValidation("RbprmPathValidation",0.05)
 r(q_init)
 
 
@@ -71,8 +73,8 @@ if isinstance(t, list):
 
 from hpp.gepetto import PathPlayer
 pp = PathPlayer (rbprmBuilder.client.basic, r)
-
-#~ pp (0)
-#~ pp (1)
-pp (0)
+r(q_goal)
+#pp (0)
+#pp (1)
+# pp (0)
 # r (q_goal)

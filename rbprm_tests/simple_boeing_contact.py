@@ -82,7 +82,7 @@ q_init = fullBody.generateContacts(q_init, [0,0,1])
 
 # Randomly generating a contact configuration at q_end
 fullBody.setCurrentConfig (q_goal)
-q_goal = fullBody.generateContacts(q_goal, [0,0,1])
+q_goal = fullBody.generateContacts(q_goal, [0,-1,0])
 
 # specifying the full body configurations as start and goal state of the problem
 fullBody.setStartState(q_init,[])
