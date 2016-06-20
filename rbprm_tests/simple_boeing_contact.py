@@ -39,7 +39,7 @@ rLeg = 'rf_haa_joint'
 # Last joint of the limb, as in urdf file
 rfoot = 'rf_foot_joint'
 # Specifying the distance between last joint and contact surface
-rLegOffset = [0.,0,0.]
+rLegOffset = [0.,-0.021,0.]
 # Specifying the contact surface direction when the limb is in rest pose
 rLegNormal = [0,1,0]
 # Specifying the rectangular contact surface length
