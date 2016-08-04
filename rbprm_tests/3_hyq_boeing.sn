@@ -1,0 +1,9 @@
+amount of agent: 2
+agent 0
+type: hyq
+initial configuration: 4, 0, 0.65, 1, 0, 0, 0
+goal configuration: -27, 0, 0.65, 1, 0, 0, 0Z
+agent 1
+type: hyq
+initial configuration: [-27, 0, 0.65, 1, 0, 0, 0];
+goal configuration: [4, 0, 0.65, 1, 0, 0, 0];

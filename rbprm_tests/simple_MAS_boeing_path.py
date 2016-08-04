@@ -1,5 +1,9 @@
 from hpp.corbaserver.rbprm.rbprmbuilder import Builder
+from hpp.corbaserver import Client
 from hpp.gepetto import Viewer
+
+cl = Client()
+cl.problem.selectProblem("rbprm")
 
 # gepetto-viewer-server 
 # not hppcorbaserver 
@@ -15,7 +19,6 @@ srdfSuffix = ""
 # name_of_scene = "groundcrouch"
 name_of_scene = "simple_boeing"
 
-
 rbprmBuilder = Builder ()
 
 rbprmBuilder.loadModel(urdfName, urdfNameRom, rootJointType, meshPackageName, packageName, urdfSuffix, srdfSuffix)
@@ -26,6 +29,7 @@ rbprmBuilder.setNormalFilter('hyq_rfleg_rom', [0,0,1], 0.9)
 rbprmBuilder.setNormalFilter('hyq_lfleg_rom', [0,0,1], 0.9)
 rbprmBuilder.setNormalFilter('hyq_rhleg_rom', [0,0,1], 0.9)
 rbprmBuilder.boundSO3([-0.1,0.1,-1,1,-1,1])
+rbprmBuilder.setJointBounds ("base_joint_xyz", [-35,10, -4, 4, -1, 1])
 
 #~ from hpp.corbaserver.rbprm. import ProblemSolver
 from hpp.corbaserver.rbprm.problem_solver import ProblemSolver
@@ -34,19 +38,8 @@ ps = ProblemSolver( rbprmBuilder )
 
 r = Viewer (ps)
 
-
-
-rbprmBuilder.setJointBounds ("base_joint_xyz", [-35,10, -4, 4, -1, 1])
-#q_init = [0, 4, 0.65, 0.7071,0,0,0.7071];
-#q_goal = [0, -27, 0.65, 0.7071,0,0,0.7071];
 q_init = [4, 0, 0.65, 1,0,0,0];
 q_goal = [-27, 0, 0.65, 1,0,0,0];
-# rbprmBuilder.setCurrentConfig (q_init); r (q_init)
-
-# q_init = rbprmBuilder.getCurrentConfig ();
-# q_init = [-6,-3,0.8,1,0,0,0]; 
-
-# q_goal = [4, 4, 0.8, 1, 0, 0, 0]; r (q_goal)
 
 ps.addPathOptimizer("RandomShortcut")
 ps.setInitialConfig (q_init)
@@ -73,6 +66,26 @@ if isinstance(t, list):
 
 from hpp.gepetto import PathPlayer
 pp = PathPlayer (rbprmBuilder.client.basic, r)
+
+from hpp.corbaserver.manipulation import Client as ManipClient
+from hpp.corbaserver.manipulation import Robot as ManipRobot
+
+mcl = ManipClient()
+mcl.problem.selectProblem("manip")
+
+ManipRobot.packageName = "hpp_tutorial"
+ManipRobot.meshPackageName = "pr2_description"
+ManipRobot.rootJointType = "planar"
+ManipRobot.urdfName = "pr2"
+ManipRobot.urdfSuffix = ""
+ManipRobot.srdfSuffix = ""
+
+manipRobot = ManipRobot ("robot-name", "agent1")
+manipRobot.(insert|load)RobotModel("agent2", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+manipRobot.(insert|load)RobotModel("agent3", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+"agent3/base_joint_xyz"
+
+# manipRobot.isConfigValid([list of configuration in a list]) # configuration as a list and put them together to check
 # r(q_goal)
 #pp (0)
 #pp (1)
