@@ -63,20 +63,19 @@ class MetaAgent ():
 
 
 class Platform ():
-		viewer = None
-		meta_agent = None
-		tree = None
-		# path player
-		pp = None
-		# pp = PathPlayer (rbprmBuilder.client.basic,ls r)
+	viewer = None
+	meta_agent = None
+	tree = None
+	# path player
+	pp = None
+	# pp = PathPlayer (rbprmBuilder.client.basic,ls r)
 	def __init__(self, agents):
 		self.meta_agent = MetaAgent(agents)
 		# initialise a tree to get prepared to expand the tree
 
 	def plan ():
 		# if there is plan, then return true, otherwise, return false.
-
-	return (False, [])
+		return (False, [])
 
 
 def main(spc_file):
@@ -90,21 +89,23 @@ def main(spc_file):
 	amount =  int(lines[0].split(' ')[-1])
 	print 'the platform got ', amount, ' agents in this planning task'
 
-	agents = range(amount)
+	agents = []
 	# initialise an empty list of agent types. 
 	agent_types = [''] * amount
 	agent_start_config = [[]] * amount
 	agent_end_config = [[]] * amount
-
-	for a in agents:
+	
+	for a in range(amount):
 		name = int(lines[a*4 + 1].split(' ')[-1])
 		if (name == a):
 			print 'name: ', name
 			agent_types[a] = lines[a*4 + 2].split(' ')[-1] 
 			print 'type: ', agent_types[a]
 			agent_start_config = map (int, lines[a*4 + 3].split(' ')[2,:])
-			print 'initila config', 
-			print 'goal config', lines[a*4 + 4]
+			print 'initial config: ', agent_start_config
+			agent_end_config = map (int, lines[a*4 + 4].split(' ')[2,:])
+			print 'end config: ', agent_end_config
+
 
 
 
