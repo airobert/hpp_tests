@@ -3,6 +3,11 @@ from hpp.gepetto import Viewer
 from hpp.corbaserver.rbprm.problem_solver import ProblemSolver
 import sys
 
+from hpp.corbaserver.manipulation import Client as ManipClient
+from hpp.corbaserver.manipulation import Robot as ManipRobot
+from hpp.gepetto import PathPlayer
+
+
 # from hpp.corbaserver.manipulation import ManipClient
 # from hpp.corbaserver import BasicClient
 
@@ -23,8 +28,55 @@ import sys
 
 # cl.robot.isConfigValid (....)
 
+class MetaAgent ():
+	
+	agents = []
+	# the robot
+	manipRobot = None
+	# the client
+	mcl = ManipClient()
+	# the path player
+	
+
+	def __init__(self, agents):
+		self.agents = agents
+		self.mcl.problem.selectProblem("manip")
+
+		ManipRobot.packageName = "hpp_tutorial"
+		ManipRobot.meshPackageName = "pr2_description"
+		ManipRobot.rootJointType = "planar"
+		ManipRobot.urdfName = "pr2"
+		ManipRobot.urdfSuffix = ""
+		ManipRobot.srdfSuffix = ""
+		# cl.robot.insertRobotModel ()
+		manipRobot = ManipRobot ("robot-name", "agent1") # TODO
+		for a in self.agents:
+			agent_name = 'agent' + str(a.name)
+			manipRobot.loadModel(agent_name, ManipRobot.rootJointType) # I am not sure about this line
+
+			# , ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+		# "agent3/base_joint_xyz"
+
+	def check_validity ():
+		return False
 
 
+
+class Platform ():
+		viewer = None
+		meta_agent = None
+		tree = None
+		# path player
+		pp = None
+		# pp = PathPlayer (rbprmBuilder.client.basic,ls r)
+	def __init__(self, agents):
+		self.meta_agent = MetaAgent(agents)
+		# initialise a tree to get prepared to expand the tree
+
+	def plan ():
+		# if there is plan, then return true, otherwise, return false.
+
+	return (False, [])
 
 
 def main(spc_file):
