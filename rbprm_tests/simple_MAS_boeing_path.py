@@ -82,8 +82,8 @@ ManipRobot.srdfSuffix = ""
 
 manipRobot = ManipRobot ("robot-name", "agent1")
 
-manipRobot.(insert|load)RobotModel("agent2", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
-manipRobot.(insert|load)RobotModel("agent3", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+manipRobot.insertRobotModel("agent2", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+manipRobot.insertRobotModel("agent3", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
 # "agent3/base_joint_xyz"
 
 # manipRobot.isConfigValid([list of configuration in a list]) # configuration as a list and put them together to check

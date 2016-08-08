@@ -54,6 +54,9 @@ ps.addGoalConfig (q_goal)
 
 
 r.loadObstacleModel (packageName, name_of_scene, "planning")
+r.loadObstacleModel (packageName, "box", "box")
+
+
 r.client.gui.setColor('planning', [1,1,1,0.3])
 ps.client.problem.selectConFigurationShooter("RbprmShooter")
 ps.client.problem.selectPathValidation("RbprmPathValidation",0.05)
