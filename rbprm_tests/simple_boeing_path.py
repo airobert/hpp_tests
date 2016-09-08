@@ -63,7 +63,7 @@ ps.client.problem.selectPathValidation("RbprmPathValidation",0.05)
 # r(q_init)
 
 
-r.addLandmark(r.sceneName,1)
+# r.addLandmark(r.sceneName,1)
 #~ ps.solve ()
 t = ps.solve ()
 if isinstance(t, list):
@@ -74,8 +74,8 @@ if isinstance(t, list):
 #~ rbprmBuilder.exportPath (r, ps.client.problem, 1, 0.1, "obstacle_hyq_robust_10_path.txt")
 
 
-from hpp.gepetto import PathPlayer
-pp = PathPlayer (rbprmBuilder.client.basic, r)
+# from hpp.gepetto import PathPlayer
+# pp = PathPlayer (rbprmBuilder.client.basic, r)
 # r(q_goal)
 #pp (0)
 #pp (1)

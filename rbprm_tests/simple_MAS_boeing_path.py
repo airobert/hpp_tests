@@ -1,9 +1,12 @@
+
+
+
 from hpp.corbaserver.rbprm.rbprmbuilder import Builder
 from hpp.corbaserver import Client
 from hpp.gepetto import Viewer
 
 cl = Client()
-cl.problem.selectProblem("rbprm")
+# cl.problem.selectProblem("rbprm")
 
 # gepetto-viewer-server 
 # not hppcorbaserver 
@@ -53,7 +56,7 @@ ps.client.problem.selectPathValidation("RbprmPathValidation",0.05)
 # r(q_init)
 
 
-r.addLandmark(r.sceneName,1)
+# r.addLandmark(r.sceneName,1)
 #~ ps.solve ()
 t = ps.solve ()
 if isinstance(t, list):
@@ -67,23 +70,23 @@ if isinstance(t, list):
 from hpp.gepetto import PathPlayer
 pp = PathPlayer (rbprmBuilder.client.basic, r)
 
-from hpp.corbaserver.manipulation import Client as ManipClient
-from hpp.corbaserver.manipulation import Robot as ManipRobot
+# from hpp.corbaserver.manipulation import Client as ManipClient
+# from hpp.corbaserver.manipulation import Robot as ManipRobot
 
-mcl = ManipClient()
-mcl.problem.selectProblem("manip")
+# mcl = ManipClient()
+# mcl.problem.selectProblem("manip")
 
-ManipRobot.packageName = "hpp_tutorial"
-ManipRobot.meshPackageName = "pr2_description"
-ManipRobot.rootJointType = "planar"
-ManipRobot.urdfName = "pr2"
-ManipRobot.urdfSuffix = ""
-ManipRobot.srdfSuffix = ""
+# ManipRobot.packageName = "hpp_tutorial"
+# ManipRobot.meshPackageName = "pr2_description"
+# ManipRobot.rootJointType = "planar"
+# ManipRobot.urdfName = "pr2"
+# ManipRobot.urdfSuffix = ""
+# ManipRobot.srdfSuffix = ""
 
-manipRobot = ManipRobot ("robot-name", "agent1")
+# manipRobot = ManipRobot ("robot-name", "agent1")
 
-manipRobot.insertRobotModel("agent2", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
-manipRobot.insertRobotModel("agent3", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+# manipRobot.insertRobotModel("agent2", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
+# manipRobot.insertRobotModel("agent3", ManipRobot.rootJointType, ManipRobot.packageName, ManipRobot.urdfName, ManipRobot.urdfSuffix, ManipRobot.srdfSuffix)
 # "agent3/base_joint_xyz"
 
 # manipRobot.isConfigValid([list of configuration in a list]) # configuration as a list and put them together to check

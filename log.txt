@@ -1,0 +1,46 @@
+
+*** PROFILING RESULTS [ms] (min - avg - max - total time - nSamples) ***
+complete generation                     61.64	61.64	61.64	61.64	1
+test balance                            0.00	-nan	0.00	0.00	0
+no contact: 260
+planner succeeded: 1
+contact: 11
+no contact: 282
+planner failed: 1
+planner succeeded: 1
+unstable contact: 1
+contact: 22
+no contact: 304
+planner failed: 2
+planner succeeded: 1
+unstable contact: 2
+contact: 33
+no contact: 326
+planner failed: 3
+planner succeeded: 1
+unstable contact: 3
+contact: 171
+no contact: 348
+planner failed: 4
+planner succeeded: 1
+unstable contact: 5
+
+*** PROFILING RESULTS [ms] (min - avg - max - total time - nSamples) ***
+collision                               0.06	0.43	0.91	393.47	918
+complete generation                     6233.57	6233.57	6233.57	6233.57	1
+ik                                      0.39	0.97	2.14	1281.46	1327
+test balance                            0.28	0.48	1.22	419.30	881
+contact: 906
+no contact: 348
+planner failed: 4
+planner succeeded: 2
+unstable contact: 6
+
+*** PROFILING RESULTS [ms] (min - avg - max - total time - nSamples) ***
+collision                               0.10	0.45	0.80	680.04	1513
+complete generation                     8718.96	8718.96	8718.96	8718.96	1
+ik                                      0.38	0.74	2.74	1205.58	1637
+test balance                            0.27	0.43	1.45	618.25	1450
+contact: 273
+planner succeeded: 1
+unstable contact: 1
